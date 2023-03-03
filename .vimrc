@@ -22,6 +22,14 @@ nnoremap <F2> :set invpaste paste?<CR>
 imap <F2> <C-O>:set invpaste paste?<CR>
 set pastetoggle=<F2>
 
+" " Some personal remapings
+" jk to exit insert mode
+inoremap jk <Esc>
+nnoremap k gk
+nnoremap j gj
+inoremap <c-e> <End>
+inoremap <c-a> <Home>
+
 " Uncomment below to set the max textwidth. Use a value corresponding to the width of your screen.
 " set textwidth=79
 set formatoptions=tcqrn1
@@ -52,7 +60,7 @@ set matchpairs+=<:>
 
 " Display different types of white spaces.
 set list
-set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
+" set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 " Show line numbers
 set number
 
@@ -92,7 +100,6 @@ set viminfo='100,<9999,s100
 if filereadable(expand("~/.vimrc.plug"))
     source ~/.vimrc.plug
 endif
-
 " Remap for NERDTree
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
