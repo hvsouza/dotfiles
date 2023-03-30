@@ -38,3 +38,4 @@ Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
+colorscheme dracula

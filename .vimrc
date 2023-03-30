@@ -25,9 +25,11 @@ set pastetoggle=<F2>
 " " Some personal remapings
 " jk to exit insert mode
 inoremap jk <Esc>
-nnoremap k gk
-nnoremap j gj
-inoremap <c-e> <End>
+" nnoremap k gk
+" nnoremap j gj
+nnoremap <expr> j v:count == 0 ? 'gj' : "\<Esc>".v:count.'j'
+nnoremap <expr> k v:count == 0 ? 'gk' : "\<Esc>".v:count.'k'
+inoremap <c-e> <End> 
 inoremap <c-a> <Home>
 
 " Uncomment below to set the max textwidth. Use a value corresponding to the width of your screen.
@@ -59,10 +61,11 @@ set showcmd
 set matchpairs+=<:>
 
 " Display different types of white spaces.
-set list
+" set list
 " set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
+
 " Show line numbers
-set number
+set number relativenumber
 
 " Set status line display
 " set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%c')}
@@ -71,7 +74,7 @@ set number
 set encoding=utf-8
 
 " Highlight matching search patterns
-" set hlsearch
+set hlsearch
 
 " Enable incremental search
 set incsearch
@@ -112,13 +115,9 @@ let g:NERDTreeWinSize=38
 
 
 " The lightline.vim theme
-let g:lightline = {
-            \ 'colorscheme': 'darcula',
-            \ }
-
+let g:lightline = {'colorscheme': 'dracula' }
 let g:dracula_italic = 0
-let g:dracula_colorterm = 1
-colors dracula
+let g:dracula_colorterm = 1 " for terminator
 
  " provide path directly to the library file
  let g:clang_library_path='/usr/lib/llvm-14/lib/libclang-14.so.1'
@@ -138,6 +137,7 @@ colors dracula
 "   Ps = 4  -> steady underline.
 "   Ps = 5  -> blinking bar (xterm).
 "   Ps = 6  -> steady bar (xterm).
+" Change cursor between normal and insert mode
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[0 q"
 
