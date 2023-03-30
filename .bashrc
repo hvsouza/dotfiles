@@ -120,7 +120,8 @@ fi
 stty -ixon
 
 export VISUAL="emacsclient -c -a emacs"         # $VISUAL opens in GUI mode
-alias myemacs="emacsclient -n -a emacs"
+alias myemacs="emacsclient -n"
+# alias myemacs="emacsclient -n -a emacs"
 
 source ~/Documents/root_6.26.04/root_install/bin/thisroot.sh
 alias root="root -l"
