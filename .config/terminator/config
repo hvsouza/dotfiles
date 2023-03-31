@@ -1,0 +1,26 @@
+[global_config]
+  broadcast_default = off
+  always_split_with_profile = True
+[keybindings]
+[profiles]
+  [[default]]
+    background_color = "#2f2d30"
+    cursor_color = "#f5c211"
+    foreground_color = "#fcfcfa"
+    scrollback_infinite = True
+    palette = "#403e41:#ff6188:#a9dc76:#ffd866:#ab9df2:#fc9867:#78dce8:#fcfcfa:#727072:#ff6188:#a9dc76:#ffd866:#ab9df2:#fc9867:#78dce8:#fcfcfa"
+  [[backup]]
+    cursor_color = "#aaaaaa"
+    foreground_color = "#ffffff"
+    scrollback_infinite = True
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+[plugins]
