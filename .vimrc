@@ -197,3 +197,4 @@ let g:ycm_global_ycm_extra_conf='$HOME/.vim/plugged/youcompleteme/.ycm_extra_con
 " " highlight xmlEndTag        ctermfg=114     ctermbg=none    cterm=none
 
 
+set mouse=a
