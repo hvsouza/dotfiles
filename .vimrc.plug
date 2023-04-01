@@ -28,6 +28,8 @@ Plug 'valloric/youcompleteme'
 " autor pair
 Plug 'jiangmiao/auto-pairs'
 
+" " vim multi cursors
+" Plug 'terryma/vim-multiple-cursors'
 
 
 "{{ Syntax Highlighting and Colors }}
