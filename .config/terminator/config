@@ -6,9 +6,11 @@
   [[default]]
     background_color = "#2f2d30"
     cursor_color = "#f5c211"
+    font = Hack 12
     foreground_color = "#fcfcfa"
     scrollback_infinite = True
     palette = "#403e41:#ff6188:#a9dc76:#ffd866:#ab9df2:#fc9867:#78dce8:#fcfcfa:#727072:#ff6188:#a9dc76:#ffd866:#ab9df2:#fc9867:#78dce8:#fcfcfa"
+    use_system_font = False
   [[backup]]
     cursor_color = "#aaaaaa"
     foreground_color = "#ffffff"
