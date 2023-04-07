@@ -21,7 +21,7 @@ Plug 'tpope/vim-repeat'
 " Vim commentary
 Plug 'tpope/vim-commentary'
 
-" Plug 'rip-rip/clang_complete'
+" Plug 'rip-rip/clang_complete' " For servers to be simpler
 Plug 'valloric/youcompleteme'
 
 
@@ -31,13 +31,13 @@ Plug 'jiangmiao/auto-pairs'
 " " vim multi cursors
 " Plug 'terryma/vim-multiple-cursors'
 
+Plug 'sheerun/vim-polyglot'
 
 "{{ Syntax Highlighting and Colors }}
-  Plug 'PotatoesMaster/i3-vim-syntax'                " i3 config highlighting
-  Plug 'kovetskiy/sxhkd-vim'                         " sxhkd highlighting
+  " Plug 'PotatoesMaster/i3-vim-syntax'                " i3 config highlighting
+  " Plug 'kovetskiy/sxhkd-vim'                         " sxhkd highlighting
   Plug 'vim-python/python-syntax'                    " Python highlighting
-  Plug 'ap/vim-css-color'                            " Color previews for CSS
+  " Plug 'ap/vim-css-color'                            " Color previews for CSS
 
 call plug#end()
 
-colorscheme dracula

@@ -4,10 +4,9 @@ set nocompatible
 " Helps force plug-ins to load correctly when it is turned back on below.
 filetype off
 
-" Turn on syntax highlighting.
-syntax on
-
+" Highlight cursor position
 set cursorline
+
 
 " For plug-ins to load correctly.
 filetype plugin indent on
@@ -29,7 +28,7 @@ inoremap jk <Esc>
 " nnoremap j gj
 nnoremap <expr> j v:count == 0 ? 'gj' : "\<Esc>".v:count.'j'
 nnoremap <expr> k v:count == 0 ? 'gk' : "\<Esc>".v:count.'k'
-inoremap <c-e> <End> 
+inoremap <c-e> <End>
 inoremap <c-a> <Home>
 
 " Uncomment below to set the max textwidth. Use a value corresponding to the width of your screen.
@@ -67,8 +66,8 @@ set matchpairs+=<:>
 " Show line numbers
 set number relativenumber
 
-" Set status line display
-" set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%c')}
+" " System clipboard
+" set clipboard^=unnamedplus
 
 " Encoding
 set encoding=utf-8
@@ -116,8 +115,14 @@ let g:NERDTreeWinSize=38
 
 " The lightline.vim theme
 let g:lightline = {'colorscheme': 'dracula' }
-let g:dracula_italic = 0
+let g:dracula_italic = 1
 let g:dracula_colorterm = 1 " for terminator
+
+colorscheme dracula
+
+
+" Turn on syntax highlighting.
+syntax enable
 
  " provide path directly to the library file
  let g:clang_library_path='/usr/lib/llvm-14/lib/libclang-14.so.1'
@@ -141,13 +146,58 @@ let g:dracula_colorterm = 1 " for terminator
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[0 q"
 
+" For italic to work
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
+
 " Use <C-L> to clear the highlighting of :set hlsearch.
 if maparg('<C-G>', 'n') ==# ''
   nnoremap <silent> <C-G> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endif
 
 
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_global_ycm_extra_conf='$HOME/.vim/plugged/youcompleteme/.ycm_extra_conf.py '
+" let g:ycm_autoclose_preview_window_after_insertion = 1
+" let g:ycm_global_ycm_extra_conf='$HOME/.vim/plugged/youcompleteme/.ycm_extra_conf.py '
 
 set mouse=a
+map <F3> <ESC>:exec &mouse!=""? "set mouse=" : "set mouse=nv"<CR>
+
+
+" get rid of the annoying Ex mode
+nnoremap Q <Nop>
+
+
+" Disable numbers for better copying and paste
+silent! map <F10> :set invnumber invrelativenumber <CR>
+
+" " In case you want to copy to xclip
+" vmap "+y :!xclip -f -sel clip <CR>
+" map "+p :r!xclip -o -sel clip <CR>
+
+" Smart dir behaviour
+set autochdir
+
+
+" Closing tags xml files
+" filenames like *.xml, *.html, *.xhtml, ...
+" These are the file extensions where this plugin is enabled.
+let g:closetag_filenames = '*.xml,*.html,*.xhtml,*.phtml'
+
+" filetypes like xml, html, xhtml, ...
+" These are the file types where this plugin is enabled.
+let g:closetag_filetypes = 'xml,html,xhtml,phtml'
+
+
+" integer value [0|1]
+" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
+let g:closetag_emptyTags_caseSensitive = 1
+
+" Shortcut for closing tags, default is '>'
+let g:closetag_shortcut = '>'
+
+" Add > at current position without closing the current tag, default is ''
+let g:closetag_close_shortcut = '<leader>>'
+
+
+autocmd BufRead,BufNewFile *.C set filetype=cpp
+
