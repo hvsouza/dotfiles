@@ -41,6 +41,17 @@ set softtabstop=4
 set expandtab
 set noshiftround
 
+" Remap leader to space
+nnoremap <SPACE> <Nop>
+let mapleader=" "
+
+" For the `best way to navigate files in vim`
+nnoremap <Leader>h :bprevious<CR>
+nnoremap <Leader>l :bnext<CR>
+nnoremap <Leader>k :bfirst<CR>
+nnoremap <Leader>j :blast<CR>
+nnoremap <Leader>bb :ls<CR>:b<Space>
+
 " Display 5 lines above/below the cursor when scrolling with a mouse.
 set scrolloff=5
 " Fixes common backspace problems
@@ -97,6 +108,25 @@ set t_Co=256                    " Set if term supports 256 colors.
 " Store info from no more than 100 files at a time, 9999 lines of text, 100kb of data. Useful for copying large amounts of data between files.
 set viminfo='100,<9999,s100
 
+" Set .C file as cpp (my usual root script extension)
+autocmd BufRead,BufNewFile *.C set filetype=cpp
+
+set mouse=a
+map <F3> <ESC>:exec &mouse!=""? "set mouse=" : "set mouse=nv"<CR>
+
+" get rid of the annoying Ex mode
+nnoremap Q <Nop>
+
+" Disable numbers for better copying and paste
+silent! map <F10> :set invnumber invrelativenumber <CR>
+
+" " In case you want to copy to xclip
+" vmap "+y :!xclip -f -sel clip <CR>
+" map "+p :r!xclip -o -sel clip <CR>
+
+" Smart dir behaviour
+set autochdir
+
 
 " Call the .vimrc.plug file
 if filereadable(expand("~/.vimrc.plug"))
@@ -112,14 +142,12 @@ let NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize=38
 
 
-
 " The lightline.vim theme
 let g:lightline = {'colorscheme': 'dracula' }
 let g:dracula_italic = 1
 let g:dracula_colorterm = 1 " for terminator
 
 colorscheme dracula
-
 
 " Turn on syntax highlighting.
 syntax enable
@@ -157,25 +185,7 @@ endif
 
 
 " let g:ycm_autoclose_preview_window_after_insertion = 1
-" let g:ycm_global_ycm_extra_conf='$HOME/.vim/plugged/youcompleteme/.ycm_extra_conf.py '
-
-set mouse=a
-map <F3> <ESC>:exec &mouse!=""? "set mouse=" : "set mouse=nv"<CR>
-
-
-" get rid of the annoying Ex mode
-nnoremap Q <Nop>
-
-
-" Disable numbers for better copying and paste
-silent! map <F10> :set invnumber invrelativenumber <CR>
-
-" " In case you want to copy to xclip
-" vmap "+y :!xclip -f -sel clip <CR>
-" map "+p :r!xclip -o -sel clip <CR>
-
-" Smart dir behaviour
-set autochdir
+" let g:ycm_global_ycm_extra_conf='$HOME/.vim/plugged/youcompleteme/.ycm_extra_conf.py 
 
 
 " Closing tags xml files
@@ -199,5 +209,13 @@ let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
 
 
-autocmd BufRead,BufNewFile *.C set filetype=cpp
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+
+
 

@@ -28,16 +28,27 @@ Plug 'valloric/youcompleteme'
 " autor pair
 Plug 'jiangmiao/auto-pairs'
 
-" " vim multi cursors
-" Plug 'terryma/vim-multiple-cursors'
+" Well ..
+Plug 'CrossR/vim-fhicl'
 
+" Syntax package
 Plug 'sheerun/vim-polyglot'
+
 
 "{{ Syntax Highlighting and Colors }}
   " Plug 'PotatoesMaster/i3-vim-syntax'                " i3 config highlighting
   " Plug 'kovetskiy/sxhkd-vim'                         " sxhkd highlighting
   Plug 'vim-python/python-syntax'                    " Python highlighting
-  " Plug 'ap/vim-css-color'                            " Color previews for CSS
+  Plug 'ap/vim-css-color'                            " Color previews for CSS
+
+" Some closing tags for xml files
+Plug 'alvan/vim-closetag'
+
+" For fast change tags
+Plug 'andrewradev/tagalong.vim'
+
+" Well.. easy align
+Plug 'junegunn/vim-easy-align'
 
 call plug#end()
 
