@@ -50,5 +50,9 @@ Plug 'andrewradev/tagalong.vim'
 " Well.. easy align
 Plug 'junegunn/vim-easy-align'
 
+" Vim undo tree
+Plug 'mbbill/undotree'
+
+
 call plug#end()
 

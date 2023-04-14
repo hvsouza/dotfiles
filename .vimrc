@@ -33,12 +33,21 @@ inoremap <c-a> <Home>
 
 " Uncomment below to set the max textwidth. Use a value corresponding to the width of your screen.
 " set textwidth=79
-set formatoptions=tcqrn1
-set smarttab
+
+" Hitting `o` will not add comment, hitting <Enter> in insert mode will
+" Removed t and c (auto wrap text and comment) 
+" set formatoptions=qrn1j
+" Doing like this avoid overwritting by synyax plugins 
+" autocmd BufNewFile,BufRead * set formatoptions-=c
+autocmd FileType * set formatoptions=qrn1j
+ 
+set smarttab 
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+" Spaces instead of tab for readl tab in insert mode: <Ctrl+V> Tab
 set expandtab
+" For indendint with `>` or `<`
 set noshiftround
 
 " Remap leader to space
@@ -124,7 +133,8 @@ silent! map <F10> :set invnumber invrelativenumber <CR>
 " vmap "+y :!xclip -f -sel clip <CR>
 " map "+p :r!xclip -o -sel clip <CR>
 
-" Smart dir behaviour
+" Smart dir behaviour that keeps current folder in the file i'm editting 
+
 set autochdir
 
 
@@ -209,7 +219,6 @@ let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
 
 
-
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 
@@ -217,5 +226,7 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 
+" For undo tree
+nnoremap <C-x>u :UndotreeToggle<CR>
 
 
