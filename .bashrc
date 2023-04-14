@@ -117,11 +117,15 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# prevent Ctrl-s from freezing terminal
 stty -ixon
 
 export VISUAL="emacsclient -c -a emacs"         # $VISUAL opens in GUI mode
 alias myemacs="emacsclient -n"
 # alias myemacs="emacsclient -n -a emacs"
+
+alias myvim='vim --servername SERVER --remote'
+alias startvim='vim --servername SERVER'
 
 source ~/Documents/root_6.26.04/root_install/bin/thisroot.sh
 alias root="root -l"
@@ -143,3 +147,7 @@ alias qtcreator="~/Qt/Tools/QtCreator/bin/qtcreator"
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 # make sure you use command
 # config config --local status.showUntrackedFiles no
+
+
+# for sarching forward with ctrl+t
+bind "\C-t":forward-search-history
