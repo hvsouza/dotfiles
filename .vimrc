@@ -60,6 +60,13 @@ nnoremap <Leader>l :bnext<CR>
 nnoremap <Leader>k :bfirst<CR>
 nnoremap <Leader>j :blast<CR>
 nnoremap <Leader>bb :ls<CR>:b<Space>
+" Go to previous buffer like doomemacs (not sure why two enters)
+nnoremap <Leader>bl :ls<CR>:b<Space>#<CR><CR> 
+" Kill buffer like doomemacs
+nnoremap <Leader>bk :bd<CR>
+" To explore like doomemacs
+nnoremap <Leader>. :e<Space>
+
 
 " Display 5 lines above/below the cursor when scrolling with a mouse.
 set scrolloff=5
