@@ -558,7 +558,8 @@ schemes:
   CustomH: &CustomH
      # Default colors
     primary:
-      background: '#2F2D30'
+      background: '#252326'
+        #background: '#2F2D30'
       foreground: '#fcfcfa'
 
     # Colors the cursor will use if `custom_cursor_colors` is true
