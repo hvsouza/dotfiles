@@ -53,6 +53,9 @@ Plug 'junegunn/vim-easy-align'
 " Vim undo tree
 Plug 'mbbill/undotree'
 
+" Show matches from search
+Plug 'google/vim-searchindex'
+
 
 call plug#end()
 

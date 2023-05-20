@@ -7,7 +7,6 @@ filetype off
 " Highlight cursor position
 set cursorline
 
-
 " For plug-ins to load correctly.
 filetype plugin indent on
 
@@ -54,7 +53,7 @@ set noshiftround
 nnoremap <SPACE> <Nop>
 let mapleader=" "
 
-" For the `best way to navigate files in vim`
+" For the `best way to navigate files in vim` I remap buffer navigation
 nnoremap <Leader>h :bprevious<CR>
 nnoremap <Leader>l :bnext<CR>
 nnoremap <Leader>k :bfirst<CR>
@@ -66,7 +65,6 @@ nnoremap <Leader>bl :ls<CR>:b<Space>#<CR><CR>
 nnoremap <Leader>bk :bd<CR>
 " To explore like doomemacs
 nnoremap <Leader>. :e<Space>
-
 
 " Display 5 lines above/below the cursor when scrolling with a mouse.
 set scrolloff=5
