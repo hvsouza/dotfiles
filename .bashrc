@@ -145,12 +145,12 @@ alias myclass="source ~/Dropbox/APC_Paris/Root/cold_box_analysis/class/load_my_c
 alias python="python3"
 alias qtcreator="~/Qt/Tools/QtCreator/bin/qtcreator"
 
-
 # for dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 # make sure you use command
 # config config --local status.showUntrackedFiles no
 
+export CODES="/home/henrique/Dropbox/APC_Paris/Root/cold_box_analysis/class"
 
 # for sarching forward with ctrl+t
 bind "\C-t":forward-search-history
