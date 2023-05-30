@@ -66,6 +66,9 @@ nnoremap <Leader>bk :bd<CR>
 " To explore like doomemacs
 nnoremap <Leader>. :e<Space>
 
+" Moving windows better
+nnoremap <leader>w <c-w>
+
 " Display 5 lines above/below the cursor when scrolling with a mouse.
 set scrolloff=5
 " Fixes common backspace problems
@@ -234,4 +237,17 @@ nmap ga <Plug>(EasyAlign)
 " For undo tree
 nnoremap <C-x>u :UndotreeToggle<CR>
 
+" For persistent undo tree
+if has("persistent_undo")
+   let target_path = expand('~/.undodir')
 
+    " create the directory and any parent directories
+    " if the location does not exist.
+    if !isdirectory(target_path)
+        call mkdir(target_path, "p", 0700)
+    endif
+
+    let &undodir=target_path
+    set undofile
+endif
+set undofile
