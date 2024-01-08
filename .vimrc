@@ -237,6 +237,9 @@ nmap ga <Plug>(EasyAlign)
 " For undo tree
 nnoremap <C-x>u :UndotreeToggle<CR>
 
+" Set normal commentary for cpp, c and java
+autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
+
 " For persistent undo tree
 if has("persistent_undo")
    let target_path = expand('~/.undodir')
@@ -251,3 +254,5 @@ if has("persistent_undo")
     set undofile
 endif
 set undofile
+
+
