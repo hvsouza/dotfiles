@@ -155,6 +155,46 @@ alias ncdu="ncdu --color dark"
 
 export CODES="/home/henrique/Dropbox/APC_Paris/Root/cold_box_analysis/class"
 
+export jan2024="/home/henrique/Documents/ADC_data/coldbox_data/January2024run"
 
 # for sarching forward with ctrl+t
 bind "\C-t":forward-search-history
+
+
+compress_pdf(){
+
+    fileinput=''
+    fileoutput='output.pdf'
+    funcname=$FUNCNAME
+    compfact='ebook'
+    Help(){
+        echo "Usage: $funcname \"input.pdf\" \"output.pdf\" \"compression\""
+        echo "input.pdf:   the name of the file to be compressed"
+        echo "output.pdf:  the name (optional). DONT USE THE SAME NAME!"
+        echo "compression: the compression to be used (optinal) "
+        echo "             screen: lower quality, smaller size. (72 dpi) "
+        echo "             ebook: for better quality, but slightly larger pdfs. (150 dpi)"
+        echo "             prepress: output similar to Acrobat Distiller "Prepress Optimized" setting (300 dpi)"
+        echo "             printer: selects output similar to the Acrobat Distiller "Print Optimized" setting (300 dpi)"
+        echo "             default: selects output intended to be useful across a wide variety of uses, possibly at the expense of a larger output file"
+    }
+
+	if [ ! -z "$1" ]; then
+        if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
+            Help
+            return 0
+        fi
+        fileinput=$1
+	fi
+	if [ ! -z "$2" ]; then
+        fileoutput=$2
+	fi
+
+	if [ ! -z "$3" ]; then
+        compfact=$3
+	fi
+
+    eval "gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/$compfact -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$fileoutput $fileinput"
+}
+
+
