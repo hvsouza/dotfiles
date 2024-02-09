@@ -240,6 +240,9 @@ nnoremap <C-x>u :UndotreeToggle<CR>
 " Set normal commentary for cpp, c and java
 autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
 
+" Set breakline for tex documents
+autocmd BufRead,BufNewFile *.tex setlocal textwidth=80
+
 " For persistent undo tree
 if has("persistent_undo")
    let target_path = expand('~/.undodir')
