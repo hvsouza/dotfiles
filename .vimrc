@@ -69,6 +69,9 @@ nnoremap <Leader>. :e<Space>
 " Moving windows better
 nnoremap <leader>w <c-w>
 
+" To quick set or unset wrap:
+nnoremap <leader>tw :set wrap!<CR> 
+
 " Display 5 lines above/below the cursor when scrolling with a mouse.
 set scrolloff=5
 " Fixes common backspace problems
