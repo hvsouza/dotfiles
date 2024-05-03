@@ -22,7 +22,8 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 
 " Plug 'rip-rip/clang_complete' " For servers to be simpler
-Plug 'valloric/youcompleteme'
+" Plug 'valloric/youcompleteme'
+Plug 'davidhalter/jedi-vim'
 
 
 " autor pair

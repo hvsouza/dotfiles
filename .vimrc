@@ -69,6 +69,9 @@ nnoremap <Leader>. :e<Space>
 " Moving windows better
 nnoremap <leader>w <c-w>
 
+" Shortcut for saving
+nnoremap <leader>m :w<CR>
+
 " To quick set or unset wrap:
 nnoremap <leader>tw :set wrap!<CR> 
 
@@ -84,7 +87,7 @@ set ttyfast
 set laststatus=2
 
 " Display options
-set showmode
+set noshowmode
 set showcmd
 
 " Highlight matching pairs of brackets. Use the '%' character to jump between them.
@@ -208,6 +211,11 @@ endif
 " let g:ycm_autoclose_preview_window_after_insertion = 1
 " let g:ycm_global_ycm_extra_conf='$HOME/.vim/plugged/youcompleteme/.ycm_extra_conf.py 
 
+" Jedi configuration
+let g:jedi#use_splits_not_buffers = "right"
+let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 0
+let g:jedi#show_call_signatures = "2"
 
 " Closing tags xml files
 " filenames like *.xml, *.html, *.xhtml, ...
@@ -246,6 +254,9 @@ autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
 " Set breakline for tex documents
 autocmd BufRead,BufNewFile *.tex setlocal textwidth=80
 
+" Set python indentation
+au BufRead,BufNewFile *.py set expandtab
+
 " For persistent undo tree
 if has("persistent_undo")
    let target_path = expand('~/.undodir')
@@ -261,4 +272,13 @@ if has("persistent_undo")
 endif
 set undofile
 
+" Doing again because of polyglot
+set smarttab 
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+" Spaces instead of tab for readl tab in insert mode: <Ctrl+V> Tab
+set expandtab
+" For indendint with `>` or `<`
+set noshiftround
 
