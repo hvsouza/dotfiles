@@ -156,6 +156,7 @@ alias ncdu="ncdu --color dark"
 export CODES="/home/henrique/Dropbox/APC_Paris/Root/cold_box_analysis/class"
 
 export jan2024="/home/henrique/Documents/ADC_data/coldbox_data/January2024run"
+export april2024="/home/henrique/Documents/ADC_data/coldbox_data/April2024run"
 
 # for sarching forward with ctrl+t
 bind "\C-t":forward-search-history
