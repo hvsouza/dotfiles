@@ -27,6 +27,10 @@ shopt -s checkwinsize
 # for expanding tab
 shopt -s direxpand
 
+
+# Prevents ctrl+d from closing terminal
+set -o ignoreeof
+
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
 #shopt -s globstar
@@ -157,6 +161,7 @@ export CODES="/home/henrique/Dropbox/APC_Paris/Root/cold_box_analysis/class"
 
 export jan2024="/home/henrique/Documents/ADC_data/coldbox_data/January2024run"
 export april2024="/home/henrique/Documents/ADC_data/coldbox_data/April2024run"
+export protoHD="/home/henrique/Documents/ADC_data/ProtoDUNE_HD"
 
 # for sarching forward with ctrl+t
 bind "\C-t":forward-search-history
@@ -197,5 +202,10 @@ compress_pdf(){
 
     eval "gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/$compfact -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$fileoutput $fileinput"
 }
+
+# for lxplus
+lxplusID=118461
+export VNC_DISPLAY=$((1 + $lxplusID%65535))
+export VNC_PORT=$(($VNC_DISPLAY+5900))
 
 

@@ -329,7 +329,7 @@ Rint.History:            $(HOME)/.root_hist
 # set to 0 to turn off command recording.
 # Can be overridden by environment variable ROOT_HIST=size[:save],
 # the ":save" part is optional.
-Rint.HistSize:         10000
+Rint.HistSize:         100000
 # Set to -1 for sensible default (80% of HistSize), set to 0 to disable history.
 Rint.HistSave:         -1
 # Print a single line welcome message instead of the default verbose version
