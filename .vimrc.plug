@@ -1,7 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
 " " Figitive Vim Github Wrapper
-" Plug 'tpope/vim-figutive'
+Plug 'tpope/vim-fugitive'
 
 " Surround for vim
 Plug 'tpope/vim-surround'

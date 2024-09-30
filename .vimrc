@@ -62,7 +62,9 @@ nnoremap <Leader>bb :ls<CR>:b<Space>
 " Go to previous buffer like doomemacs (not sure why two enters)
 nnoremap <Leader>bl :ls<CR>:b<Space>#<CR><CR> 
 " Kill buffer like doomemacs
-nnoremap <Leader>bk :bd<CR>
+" nnoremap <Leader>bk :bd<CR>
+nnoremap <silent> <Leader>bk :Bclose<CR>
+
 " To explore like doomemacs
 nnoremap <Leader>. :e<Space>
 
@@ -147,8 +149,11 @@ silent! map <F10> :set invnumber invrelativenumber <CR>
 " vmap "+y :!xclip -f -sel clip <CR>
 " map "+p :r!xclip -o -sel clip <CR>
 
-" Smart dir behaviour that keeps current folder in the file i'm editting 
+" Set autopair back
+" If you try to close ')' or '}' and it jumpts to next one, type 'M-c'
+let g:AutoPairsShortcutBackInsert = '<c-b>'
 
+" Smart dir behaviour that keeps current folder in the file i'm editting 
 set autochdir
 
 
@@ -247,6 +252,11 @@ nmap ga <Plug>(EasyAlign)
 
 " For undo tree
 nnoremap <C-x>u :UndotreeToggle<CR>
+
+" Fugitive is amazing :o
+nnoremap <Leader>gg :Git<CR>
+" Autoclean it (might never use it)
+autocmd BufReadPost fugitive://* set bufhidden=delete
 
 " Set normal commentary for cpp, c and java
 autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
