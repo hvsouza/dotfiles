@@ -34,13 +34,13 @@ inoremap <c-a> <Home>
 " set textwidth=79
 
 " Hitting `o` will not add comment, hitting <Enter> in insert mode will
-" Removed t and c (auto wrap text and comment) 
+" Removed t and c (auto wrap text and comment)
 " set formatoptions=qrn1j
-" Doing like this avoid overwritting by synyax plugins 
+" Doing like this avoid overwritting by synyax plugins
 " autocmd BufNewFile,BufRead * set formatoptions-=c
 autocmd FileType * set formatoptions=qrn1j
- 
-set smarttab 
+
+set smarttab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -60,7 +60,7 @@ nnoremap <Leader>k :bfirst<CR>
 nnoremap <Leader>j :blast<CR>
 nnoremap <Leader>bb :ls<CR>:b<Space>
 " Go to previous buffer like doomemacs (not sure why two enters)
-nnoremap <Leader>bl :ls<CR>:b<Space>#<CR><CR> 
+nnoremap <Leader>bl :ls<CR>:b<Space>#<CR><CR>
 " Kill buffer like doomemacs
 " nnoremap <Leader>bk :bd<CR>
 nnoremap <silent> <Leader>bk :Bclose<CR>
@@ -75,7 +75,7 @@ nnoremap <leader>w <c-w>
 nnoremap <leader>m :w<CR>
 
 " To quick set or unset wrap:
-nnoremap <leader>tw :set wrap!<CR> 
+nnoremap <leader>tw :set wrap!<CR>
 
 " Display 5 lines above/below the cursor when scrolling with a mouse.
 set scrolloff=5
@@ -153,7 +153,7 @@ silent! map <F10> :set invnumber invrelativenumber <CR>
 " If you try to close ')' or '}' and it jumpts to next one, type 'M-c'
 let g:AutoPairsShortcutBackInsert = '<c-b>'
 
-" Smart dir behaviour that keeps current folder in the file i'm editting 
+" Smart dir behaviour that keeps current folder in the file i'm editting
 set autochdir
 
 
@@ -181,8 +181,8 @@ colorscheme dracula
 " Turn on syntax highlighting.
 syntax enable
 
- " provide path directly to the library file
- let g:clang_library_path='/usr/lib/llvm-14/lib/libclang-14.so.1'
+" provide path directly to the library file
+let g:clang_library_path='/usr/lib/llvm-14/lib/libclang-14.so.1'
 
 
 " Use a line cursor within insert mode and a block cursor everywhere else.
@@ -209,12 +209,12 @@ let &t_ZR="\e[23m"
 
 " Use <C-L> to clear the highlighting of :set hlsearch.
 if maparg('<C-G>', 'n') ==# ''
-  nnoremap <silent> <C-G> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+    nnoremap <silent> <C-G> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endif
 
 
 " let g:ycm_autoclose_preview_window_after_insertion = 1
-" let g:ycm_global_ycm_extra_conf='$HOME/.vim/plugged/youcompleteme/.ycm_extra_conf.py 
+" let g:ycm_global_ycm_extra_conf='$HOME/.vim/plugged/youcompleteme/.ycm_extra_conf.py
 
 " Jedi configuration
 let g:jedi#use_splits_not_buffers = "right"
@@ -269,7 +269,7 @@ au BufRead,BufNewFile *.py set expandtab
 
 " For persistent undo tree
 if has("persistent_undo")
-   let target_path = expand('~/.undodir')
+    let target_path = expand('~/.undodir')
 
     " create the directory and any parent directories
     " if the location does not exist.
@@ -283,7 +283,7 @@ endif
 set undofile
 
 " Doing again because of polyglot
-set smarttab 
+set smarttab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -292,3 +292,16 @@ set expandtab
 " For indendint with `>` or `<`
 set noshiftround
 
+" for removing trailing whitespaces
+function! <SID>StripTrailingWhitespaces()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
