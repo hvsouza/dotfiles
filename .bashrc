@@ -134,7 +134,8 @@ alias myemacs="emacsclient -n"
 alias myvim='vim --servername SERVER --remote'
 alias startvim='vim --servername SERVER'
 
-source ~/Documents/root_6.26.04/root_install/bin/thisroot.sh
+# source ~/Documents/root_6.26.04/root_install/bin/thisroot.sh
+source ~/Documents/root_6.30.02/root_install/bin/thisroot.sh
 alias root="root -l"
 alias sudo="sudo "
 
@@ -148,7 +149,7 @@ alias myclass="source ~/Dropbox/APC_Paris/Root/cold_box_analysis/class/load_my_c
 
 alias python="python3"
 alias qtcreator="~/Qt/Tools/QtCreator/bin/qtcreator"
-alias cppwd='echo -n $( pwd ) | xclip -sel c'
+alias cppwd="pwd | tr -d '\n' | xclip -sel c"
 
 # for dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
@@ -166,6 +167,12 @@ export protoHD="/home/henrique/Documents/ADC_data/ProtoDUNE_HD"
 # for sarching forward with ctrl+t
 bind "\C-t":forward-search-history
 
+
+
+cpls () {
+	readlink -f $@ | xclip -sel c
+	readlink -f $@
+}
 
 compress_pdf(){
 
@@ -207,5 +214,11 @@ compress_pdf(){
 lxplusID=118461
 export VNC_DISPLAY=$((1 + $lxplusID%65535))
 export VNC_PORT=$(($VNC_DISPLAY+5900))
+
+sshlxplus(){
+    whichlxplus=${1:-""}
+    xy=${2:-""}
+    ssh ${xy} -L ${VNC_PORT}:localhost:${VNC_PORT} hvieirad@lxplus${whichlxplus}.cern.ch
+}
 
 
