@@ -57,6 +57,8 @@ Plug 'mbbill/undotree'
 " Show matches from search
 Plug 'google/vim-searchindex'
 
+" For jump in indentation
+Plug 'jeetsukumaran/vim-indentwise'
 
 call plug#end()
 

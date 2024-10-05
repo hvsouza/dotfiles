@@ -216,6 +216,16 @@ export VNC_DISPLAY=$((1 + $lxplusID%65535))
 export VNC_PORT=$(($VNC_DISPLAY+5900))
 
 sshlxplus(){
+    Help(){
+        echo "Usage: $funcname \"whichlxplus\" \"xy\""
+    }
+
+	if [ ! -z "$1" ]; then
+        if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
+            Help
+            return 0
+        fi
+	fi
     whichlxplus=${1:-""}
     xy=${2:-""}
     ssh ${xy} -L ${VNC_PORT}:localhost:${VNC_PORT} hvieirad@lxplus${whichlxplus}.cern.ch
