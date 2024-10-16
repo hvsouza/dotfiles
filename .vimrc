@@ -257,6 +257,7 @@ nnoremap <C-x>u :UndotreeToggle<CR>
 nnoremap <Leader>gg :Git<CR>
 " Autoclean it (might never use it)
 autocmd BufReadPost fugitive://* set bufhidden=delete
+autocmd FileType fugitive nmap <buffer> q gq
 
 " Set normal commentary for cpp, c and java
 autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
