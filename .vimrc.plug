@@ -27,7 +27,8 @@ Plug 'davidhalter/jedi-vim'
 
 
 " autor pair
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
+" Plug 'townk/vim-autoclose'
 
 " Well ..
 Plug 'CrossR/vim-fhicl'
@@ -59,6 +60,12 @@ Plug 'google/vim-searchindex'
 
 " For jump in indentation
 Plug 'jeetsukumaran/vim-indentwise'
+
+" for moving easily :P
+Plug 'easymotion/vim-easymotion'
+
+" Markdown preview. Needs nodejs and yarn
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 
 call plug#end()
 

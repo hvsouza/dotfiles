@@ -145,6 +145,8 @@ ulimit -s unlimited
 
 # alias myclass='root -e ".L /home/henrique/Dropbox/APC_Paris/Root/cold_box_analysis/class/MYCODES.h"'
 alias myclass="source ~/Dropbox/APC_Paris/Root/cold_box_analysis/class/load_my_class.sh"
+alias anasol="source /home/henrique/Documents/SoLAr/WVFAnaSoLAr/class/load_ana_class.sh"
+
 
 
 alias python="python3"
@@ -163,6 +165,8 @@ export CODES="/home/henrique/Dropbox/APC_Paris/Root/cold_box_analysis/class"
 export jan2024="/home/henrique/Documents/ADC_data/coldbox_data/January2024run"
 export april2024="/home/henrique/Documents/ADC_data/coldbox_data/April2024run"
 export protoHD="/home/henrique/Documents/ADC_data/ProtoDUNE_HD"
+
+export solars="/home/henrique/Documents/SoLAr/"
 
 # for sarching forward with ctrl+t
 bind "\C-t":forward-search-history
@@ -227,7 +231,7 @@ sshlxplus(){
         fi
 	fi
     whichlxplus=${1:-""}
-    xy=${2:-""}
+    xy=${2:-"-Y"}
     ssh ${xy} -L ${VNC_PORT}:localhost:${VNC_PORT} hvieirad@lxplus${whichlxplus}.cern.ch
 }
 

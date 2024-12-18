@@ -151,7 +151,18 @@ silent! map <F10> :set invnumber invrelativenumber <CR>
 
 " Set autopair back
 " If you try to close ')' or '}' and it jumpts to next one, type 'M-c'
-let g:AutoPairsShortcutBackInsert = '<c-b>'
+" let g:AutoPairsShortcutBackInsert = '<c-b>'
+" inoremap (, (<CR>),<C-c>O
+inoremap (; (<CR>);<C-c>O
+inoremap {; {<CR>};<C-c>O
+inoremap [; [<CR>];<C-c>O
+inoremap (<Space> (  )<C-c>hi
+inoremap {<Space> {  }<C-c>hi
+inoremap [<Space> [  ]<C-c>hi
+inoremap (<CR> (<CR>)<C-c>O
+inoremap {<CR> {<CR>}<C-c>O
+inoremap [<CR> [<CR>]<C-c>O
+
 
 " Smart dir behaviour that keeps current folder in the file i'm editting
 set autochdir
@@ -292,6 +303,21 @@ set softtabstop=4
 set expandtab
 " For indendint with `>` or `<`
 set noshiftround
+
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+nmap s <Plug>(easymotion-bd-f)
+
+" " Turn on case-insensitive feature
+" let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+
 
 " for removing trailing whitespaces
 function! <SID>StripTrailingWhitespaces()
