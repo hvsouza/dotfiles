@@ -166,7 +166,8 @@ export jan2024="/home/henrique/Documents/ADC_data/coldbox_data/January2024run"
 export april2024="/home/henrique/Documents/ADC_data/coldbox_data/April2024run"
 export protoHD="/home/henrique/Documents/ADC_data/ProtoDUNE_HD"
 
-export solars="/home/henrique/Documents/SoLAr/"
+export SOLAR="/home/henrique/Documents/SoLAr/"
+export solclass="/home/henrique/Documents/SoLAr/WVFAnaSoLAr/class/"
 
 # for sarching forward with ctrl+t
 bind "\C-t":forward-search-history
