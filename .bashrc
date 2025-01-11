@@ -235,5 +235,3 @@ sshlxplus(){
     xy=${2:-"-Y"}
     ssh ${xy} -L ${VNC_PORT}:localhost:${VNC_PORT} hvieirad@lxplus${whichlxplus}.cern.ch
 }
-
-

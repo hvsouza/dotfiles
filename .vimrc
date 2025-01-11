@@ -70,6 +70,9 @@ nnoremap <silent> <Leader>bk :Bclose<CR>
 " To explore like doomemacs
 nnoremap <Leader>. :e<Space>
 
+" Open recent files...
+nnoremap <leader>fr :bro old<CR>
+
 " Moving windows better
 nnoremap <leader>w <c-w>
 
@@ -335,9 +338,9 @@ map <Leader>k <Plug>(easymotion-k)
 
 " Snippets
 " This code should go in your vimrc or init.vim
-let g:UltiSnipsExpandTrigger       = '<Tab>'    " use Tab to expand snippets
-let g:UltiSnipsJumpForwardTrigger  = '<Tab>'    " use Tab to move forward through tabstops
-let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'  " use Shift-Tab to move backward through tabstops
+let g:UltiSnipsExpandTrigger       = '<Tab>'     " use Tab to expand snippets
+let g:UltiSnipsJumpForwardTrigger  = '<Tab>'     " use Tab to move forward through tabstopj
+let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'   " use Shift-Tab to move backward through tabstops
 
 
 " for removing trailing whitespaces
