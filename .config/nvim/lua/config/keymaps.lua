@@ -31,7 +31,7 @@ vim.keymap.set("n", "<leader>m", ":w<CR>", { desc = "Quick save file" })
 vim.keymap.set("n", "<leader>tw", ":set wrap!<CR>", { desc = "Toggle wrap" })
 vim.keymap.set("i", "<c-a>", "<Home>", { desc = "Ctrl-a begin of line" })
 vim.keymap.set("i", "<c-e>", "<End>", { desc = "Ctrl-e end of line" })
-vim.keymap.set("n", "<F3>", '<ESC>:exec &mouse!=""? "set mouse=" : "set mouse=nv"<CR>', { desc = "Toggle mouse" })
+vim.keymap.set("n", "<F3>", '<ESC>:exec &mouse!=""? "set mouse=" : "set mouse=nvi"<CR>', { desc = "Toggle mouse" })
 vim.keymap.set("n", "<F10>", ":set invnumber invrelativenumber <CR>", { desc = "Toggle line numbers" })
 
 vim.keymap.set("i", "(;", "(<CR>);<C-c>O")

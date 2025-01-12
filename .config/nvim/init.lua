@@ -11,7 +11,6 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop=4            -- see multiple spaces as tabstops so <BS> does the right thing
 vim.opt.expandtab = false
 vim.opt.showmatch = false        -- I dont like it jumping back..
-vim.opt.mouse = 'v'              -- middle-click paste with
 vim.opt.hlsearch = true          -- highlight search
 vim.opt.incsearch = true         -- incremental search
 vim.opt.autoindent = true        -- indent a new line the same amount as the line just typed vim.opt.wildmode = longest,list -- get bash-like tab completions
