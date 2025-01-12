@@ -44,6 +44,23 @@ vim.keymap.set("i", "(<CR>", "(<CR>)<C-c>O")
 vim.keymap.set("i", "{<CR>", "{<CR>}<C-c>O")
 vim.keymap.set("i", "[<CR>", "[<CR>]<C-c>O")
 
+ -- better up/down
+vim.keymap.set({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
+vim.keymap.set({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
+
+
+ -- Resize window using <ctrl> arrow keys
+vim.keymap.set("n", "<C-Up>", "<cmd>resize +1<cr>", { desc = "Increase window height" })
+vim.keymap.set("n", "<C-Down>", "<cmd>resize -1<cr>", { desc = "Decrease window height" })
+vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -1<cr>", { desc = "Decrease window width" })
+vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +1<cr>", { desc = "Increase window width" })
+
+ -- Better indenting
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")
+
+
+
 
 vim.cmd([[
   cnoremap <expr> <Up>    pumvisible() ? "\<Left>"  : "\<Up>"
