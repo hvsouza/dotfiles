@@ -1,7 +1,7 @@
- vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false })
- vim.g.mapleader = " "
+vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false })
+vim.g.mapleader = " "
 
- -- General Keymaps -------------------
+-- General Keymaps -------------------
 
 -- use jk to exit insert mode
 vim.keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
@@ -31,7 +31,7 @@ vim.keymap.set("n", "<leader>m", ":w<CR>", { desc = "Quick save file" })
 vim.keymap.set("n", "<leader>tw", ":set wrap!<CR>", { desc = "Toggle wrap" })
 vim.keymap.set("i", "<c-a>", "<Home>", { desc = "Ctrl-a begin of line" })
 vim.keymap.set("i", "<c-e>", "<End>", { desc = "Ctrl-e end of line" })
-vim.keymap.set("n", "<F3>", '<ESC>:exec &mouse!=""? "set mouse=" : "set mouse=nvi"<CR>', { desc = "Toggle mouse" })
+vim.keymap.set("n", "<F3>", '<ESC>:exec &mouse!=""? "set mouse=" : "set mouse=nv"<CR>', { desc = "Toggle mouse" })
 vim.keymap.set("n", "<F10>", ":set invnumber invrelativenumber <CR>", { desc = "Toggle line numbers" })
 
 vim.keymap.set("i", "(;", "(<CR>);<C-c>O")
@@ -44,27 +44,45 @@ vim.keymap.set("i", "(<CR>", "(<CR>)<C-c>O")
 vim.keymap.set("i", "{<CR>", "{<CR>}<C-c>O")
 vim.keymap.set("i", "[<CR>", "[<CR>]<C-c>O")
 
- -- better up/down
+-- better up/down
 vim.keymap.set({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
 vim.keymap.set({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
+vim.keymap.set("n", "^", "g^")
+vim.keymap.set("n", "0", "g0")
 
 
- -- Resize window using <ctrl> arrow keys
+-- Resize window using <ctrl> arrow keys
 vim.keymap.set("n", "<C-Up>", "<cmd>resize +1<cr>", { desc = "Increase window height" })
 vim.keymap.set("n", "<C-Down>", "<cmd>resize -1<cr>", { desc = "Decrease window height" })
 vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -1<cr>", { desc = "Decrease window width" })
 vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +1<cr>", { desc = "Increase window width" })
 
- -- Better indenting
+-- Better indenting
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
+vim.keymap.set("n", "<space>fc", "<cmd>e ~/.config/nvim/init.lua<cr>", { desc = "NVim Config. file" })
 
 
+-- Do not include white space characters when using $ in visual mode,
+-- see https://vi.stackexchange.com/q/12607/15292
+vim.keymap.set("x", "$", "g_")
 
+
+-- Copy entire buffer.
+vim.keymap.set("n", "<leader>y", "<cmd>%yank<cr>", { desc = "yank entire buffer" })
+
+-- Disable command-line window
+vim.keymap.set('n', 'q:', '<Nop>')
+vim.keymap.set('n', 'q/', '<Nop>')
+vim.keymap.set('n', 'q?', '<Nop>')
+
+
+-- Better order for wide menu
 vim.cmd([[
   cnoremap <expr> <Up>    pumvisible() ? "\<Left>"  : "\<Up>"
   cnoremap <expr> <Down>  pumvisible() ? "\<Right>" : "\<Down>"
   cnoremap <expr> <Left>  pumvisible() ? "\<Up>"    : "\<Left>"
   cnoremap <expr> <Right> pumvisible() ? "\<Down>"  : "\<Right>"
 ]])
+

@@ -141,7 +141,7 @@ set viminfo='100,<9999,s100
 autocmd BufRead,BufNewFile *.C set filetype=cpp
 
 set mouse=a
-map <F3> <ESC>:exec &mouse!=""? "set mouse=" : "set mouse=nv"<CR>
+map <F3> <ESC>:exec &mouse!=""? "set mouse=" : "set mouse=nvi"<CR>
 
 " get rid of the annoying Ex mode
 nnoremap Q <Nop>

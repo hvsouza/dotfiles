@@ -5,7 +5,7 @@
 	helper = store
 [core]
 	autocrlf = false
-	editor = vim
+	editor = nvim -f
 
 [alias]
     lg = !"git lg1"

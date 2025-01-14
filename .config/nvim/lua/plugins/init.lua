@@ -57,7 +57,7 @@ return {
 
 	{ 'lervag/vimtex' },
 
-	{ 'SirVer/ultisnips' },
+	{ 'SirVer/ultisnips', event = { 'InsertEnter' } },
 
 	-- Copilot
 	{"github/copilot.vim"},
