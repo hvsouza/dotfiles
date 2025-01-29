@@ -142,6 +142,8 @@ alias sudo="sudo "
 
 alias ls="exa -l --color=always --group-directories-first"
 ulimit -s unlimited
+ulimit -n 65536
+
 
 # alias myclass='root -e ".L /home/henrique/Dropbox/APC_Paris/Root/cold_box_analysis/class/MYCODES.h"'
 alias myclass="source ~/Dropbox/APC_Paris/Root/cold_box_analysis/class/load_my_class.sh"
