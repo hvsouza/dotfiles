@@ -15,8 +15,12 @@ return {
 	-- add dracula
 	{ 'dracula/vim' , name='dracula', priority = 10000},
 
-	-- Lightline statusbar==
-	{ 'itchyny/lightline.vim' },
+	-- -- Lightline statusbar==
+	-- { 'itchyny/lightline.vim' },
+	{
+		'nvim-lualine/lualine.nvim',
+		dependencies = { 'nvim-tree/nvim-web-devicons', opt = true }
+	},
 
 	-- Vim repeat
 	{ 'tpope/vim-repeat' },
@@ -54,13 +58,31 @@ return {
 	{ 'nvim-lua/plenary.nvim' },
 	{ 'nvim-telescope/telescope.nvim' , tag='0.1.8' },
 	{ 'nvim-telescope/telescope-file-browser.nvim' },
+	{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
 
 	{ 'lervag/vimtex' },
 
-	{ 'SirVer/ultisnips', event = { 'InsertEnter' } },
+	{ 'SirVer/ultisnips', --, event = { 'InsertEnter' } },
+	lazy = false,
+	init = function()
+		vim.g.UltiSnipsExpandOrJumpTrigger = '<tab>'
+		vim.g.UltiSnipsJumpBackwardTrigger = '<s-tab>'
+	end
+	},
+
 
 	-- Copilot
-	{"github/copilot.vim"},
+	{
+		"github/copilot.vim",
+		config = function()
+			vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
+				expr = true,
+				replace_keycodes = false
+			})
+			vim.g.copilot_no_tab_map = true
+
+		end,
+	},
 
 
 	-- Which key
@@ -95,7 +117,6 @@ return {
 		},
 	},
 
-
 	-- Indent guide
 	{
 		"lukas-reineke/indent-blankline.nvim",
@@ -103,9 +124,20 @@ return {
 		main = "ibl",
 		opts = {
 			indent = { char = "┊" },
+			scope = {
+				show_start = false,
+				show_end = false,
+			},
 		},
 	},
 
+	{
+		"L3MON4D3/LuaSnip",
+		-- follow latest release.
+		version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+		-- install jsregexp (optional!).
+		build = "make install_jsregexp",
+	},
 
 	-- Completion
 	{
@@ -115,13 +147,6 @@ return {
 			"hrsh7th/cmp-buffer", -- source for text in buffer
 			"hrsh7th/cmp-path", -- source for file system paths
 			"hrsh7th/cmp-cmdline",
-			{
-				"L3MON4D3/LuaSnip",
-				-- follow latest release.
-				version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-				-- install jsregexp (optional!).
-				build = "make install_jsregexp",
-			},
 			"saadparwaiz1/cmp_luasnip", -- for autocompletion
 			"onsails/lspkind.nvim", -- vs-code like pictograms
 		},
@@ -141,7 +166,26 @@ return {
 				-- your configuration comes here
 				-- or leave it empty to use the default settings
 				-- refer to the configuration section below
+				{
+					modes = {
+						preview_float = {
+							mode = "diagnostics",
+							preview = {
+								type = "float",
+								relative = "editor",
+								border = "rounded",
+								title = "Preview",
+								title_pos = "center",
+								position = { 0, -2 },
+								size = { width = 0.3, height = 0.3 },
+								zindex = 200,
+							},
+						},
+					},
+				}
+
 			}
 		end
 	},
+
 }

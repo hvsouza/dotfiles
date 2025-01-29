@@ -34,6 +34,7 @@ return {
                 "lua",
                 "markdown",
                 "markdown_inline",
+                "python",
                 "ron",
                 "rust",
                 "toml",
@@ -58,7 +59,7 @@ return {
                 },
             },
             indent = {
-                enable = true,
+                enable = false,
             },
         },
     },
