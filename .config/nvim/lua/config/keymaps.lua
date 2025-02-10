@@ -86,11 +86,20 @@ vim.keymap.set('n', 'q?', '<Nop>')
 -- Quit
 vim.keymap.set("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
 
+
+
 -- Better order for wide menu
 vim.cmd([[
-  cnoremap <expr> <Up>    pumvisible() ? "\<Left>"  : "\<Up>"
-  cnoremap <expr> <Down>  pumvisible() ? "\<Right>" : "\<Down>"
-  cnoremap <expr> <Left>  pumvisible() ? "\<Up>"    : "\<Left>"
-  cnoremap <expr> <Right> pumvisible() ? "\<Down>"  : "\<Right>"
+	cnoremap <expr> <Up>    pumvisible() ? "\<Left>"  : "\<Up>"
+	cnoremap <expr> <Down>  pumvisible() ? "\<Right>" : "\<Down>"
+	cnoremap <expr> <Left>  pumvisible() ? "\<Up>"    : "\<Left>"
+	cnoremap <expr> <Right> pumvisible() ? "\<Down>"  : "\<Right>"
+]])
+
+-- Fix my cazzate
+vim.cmd([[
+	cnoremap Wq wq
+	cnoremap WQ wq
+	cnoremap W  w
 ]])
 
