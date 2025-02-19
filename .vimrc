@@ -18,9 +18,7 @@ set wrap
 " Vim's auto indentation feature does not work properly with text copied from outside of Vim. Press the <F2> key to toggle paste mode on/off.
 nnoremap <F2> :set invpaste paste?<CR>
 imap <F2> <C-O>:set invpaste paste?<CR>
-if !has("nvim")
-    set pastetoggle=<F2>
-endif
+set pastetoggle=<F2>
 
 " " Some personal remapings
 " jk to exit insert mode
@@ -285,30 +283,16 @@ au BufRead,BufNewFile *.py set expandtab
 
 " For persistent undo tree
 if has("persistent_undo")
-    if !has("nvim")
-        let target_path = expand('~/.undodir')
+    let target_path = expand('~/.undodir')
 
-        " create the directory and any parent directories
-        " if the location does not exist.
-        if !isdirectory(target_path)
-            call mkdir(target_path, "p", 0700)
-        endif
-
-        let &undodir=target_path
-        set undofile
+    " create the directory and any parent directories
+    " if the location does not exist.
+    if !isdirectory(target_path)
+        call mkdir(target_path, "p", 0700)
     endif
-    if has("nvim")
-        let target_path = expand('~/.undodirnvim')
 
-        " create the directory and any parent directories
-        " if the location does not exist.
-        if !isdirectory(target_path)
-            call mkdir(target_path, "p", 0700)
-        endif
-
-        let &undodir=target_path
-        set undofile
-    endif
+    let &undodir=target_path
+    set undofile
 endif
 set undofile
 
@@ -356,92 +340,3 @@ function! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfunction
 nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
-
-
-if has("nvim")
-    nnoremap <leader>ff <cmd>Telescope find_files<cr>
-    nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-    nnoremap <leader>bb <cmd>Telescope buffers<cr>
-    nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-    nnoremap <leader>fr <cmd>Telescope oldfiles<cr>
-    nnoremap <leader>fb <cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>
-endif
-
-
-
-
-"----- show documentation in floaterm window from https://github.com/neovim/neovim/issues/1004
-if has('nvim')
-	autocmd FileType python nnoremap <buffer> K :call PyDocVim()<CR>
-
-   function! PyDocVim()
-python3 << EOF
-import jedi
-
-curfile = vim.current.buffer.name
-row = vim.current.window.cursor[0]
-col= vim.current.window.cursor[1]
-
-script = jedi.Script(
-    code=None,
-    path=curfile)
-
-try:
-   definitions = script.help(line=row, column=col)
-   # definitions = script.goto_definitions()
-except Exception:
-   # print to stdout, will be in :messages
-   definitions = []
-   print("Exception, this shouldn't happen.")
-   print(traceback.format_exc())
-
-   if not definitions:
-	   echo_highlight("No documentation found for that.")
-	   vim.command("return")
-
-docs = []
-for d in definitions:
-   doc = d.docstring()
-   if doc:
-	   title = "Docstring for %s" % d.full_name
-	   underline = "=" * len(title)
-	   docs.append("%s\n%s\n%s" % (title, underline, doc))
-   else:
-	   docs.append("|No Docstring for %s|" % d)
-   text = ("\n" + "-" * 79 + "\n").join(docs)
-vim.command("let docWidth = %s" % len(title))
-vim.command("let doc_lines = %s" % len(text.split("\n")))
-EOF
-	   "Scroll
-	   function! s:popup_filter(winid, key)
-		   if a:key ==# "\<c-k>"
-			   call win_execute(a:winid, "normal! \<c-y>")
-			   return v:true
-		   elseif a:key ==# "\<c-j>"
-			   call win_execute(a:winid, "normal! \<c-e>")
-			   return v:true
-		   elseif a:key ==# 'q' || a:key ==# 'x'
-			   return popup_filter_menu(a:winid, 'x')
-		   endif
-		   return v:false
-	   endfunction
-
-	   let $FZF_DEFAULT_OPTS .= ' --border --margin=0,2'
-	   let width = float2nr(&columns * 0.9)
-	   let height = float2nr(&lines * 0.6)
-	   let opts = { 'relative': 'editor',
-				  \ 'row': (&lines - height) / 2,
-				  \ 'col': (&columns - width) / 2,
-				  \ 'width': width,
-				  \ 'height': height }
-
-
-	   let buf = nvim_create_buf(v:false, v:true)
-	   let lines = py3eval('text')
-	   call nvim_buf_set_lines(buf, 0, -1, v:true, split(lines, '\n'))
-	   let winid = nvim_open_win(buf, v:true, opts)
-	   " call setwinvar(winid, '&wincolor', 'Normal')
-	    call setbufvar(winbufnr(winid), '&syntax','rst')
-	   call setwinvar(winid, '&winhighlight', 'NormalFloat:Normal')
-	endfunction
-endif
