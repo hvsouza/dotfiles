@@ -31,6 +31,9 @@ return {
 	-- Well ..
 	{ 'CrossR/vim-fhicl' },
 
+    -- Syntax package
+    {'sheerun/vim-polyglot'},
+
 	-- Well.. easy align
 	{ 'junegunn/vim-easy-align' },
 
@@ -69,7 +72,6 @@ return {
 		vim.g.UltiSnipsJumpBackwardTrigger = '<s-tab>'
 	end
 	},
-
 
 	-- Copilot
 	{

@@ -70,6 +70,7 @@ nnoremap <Leader>. :e<Space>
 
 " Open recent files...
 nnoremap <leader>fr :bro old<CR>
+nnoremap <leader>fc :e ~/.vimrc<CR>
 
 " Moving windows better
 nnoremap <leader>w <c-w>

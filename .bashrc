@@ -137,6 +137,7 @@ alias startvim='vim --servername SERVER'
 # source ~/Documents/root_6.26.04/root_install/bin/thisroot.sh
 source ~/Documents/root_6.30.02/root_install/bin/thisroot.sh
 alias root="root -l"
+alias roto="root -l"
 alias sudo="sudo "
 
 
@@ -167,9 +168,12 @@ export CODES="/home/henrique/Dropbox/APC_Paris/Root/cold_box_analysis/class"
 export jan2024="/home/henrique/Documents/ADC_data/coldbox_data/January2024run"
 export april2024="/home/henrique/Documents/ADC_data/coldbox_data/April2024run"
 export protoHD="/home/henrique/Documents/ADC_data/ProtoDUNE_HD"
+export protoVD="/home/henrique/Documents/ADC_data/ProtoDUNE_VD"
 
 export SOLAR="/home/henrique/Documents/SoLAr/"
 export solclass="/home/henrique/Documents/SoLAr/WVFAnaSoLAr/class/"
+export WAFFLES="/home/henrique/Documents/waffles/src/waffles/"
+
 
 # for sarching forward with ctrl+t
 bind "\C-t":forward-search-history

@@ -1,6 +1,3 @@
-
-let maplocalleader = " "
-
 nmap <localleader>c <Plug>(vimtex-compile)
 " ...or single-shot compilation, if you prefer.
 "nmap <localleader>c <Plug>(vimtex-compile-ss)

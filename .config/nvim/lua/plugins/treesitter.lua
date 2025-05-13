@@ -22,7 +22,7 @@ return {
             require("nvim-treesitter.query_predicates")
         end,
         keys = {
-            { "<c-i>", desc = "Increment Selection" },
+            { "<C-space>", desc = "Increment Selection" },
             { "<bs>", desc = "Decrement Selection", mode = "x" },
         },
         opts = {
@@ -52,8 +52,8 @@ return {
             incremental_selection = {
                 enable = true,
                 keymaps = {
-                    init_selection = "<c-i>",
-                    node_incremental = "<c-i>",
+                    init_selection = "<C-space>",
+                    node_incremental = "<C-space>",
                     scope_incremental = false,
                     node_decremental = "<bs>",
                 },
