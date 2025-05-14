@@ -1,0 +1,8 @@
+#~/.config/clangd/config.yaml
+CompileFlags:
+  Add:
+    - --include-directory=/usr/include/c++/11/
+    - --include-directory=/usr/include/x86_64-linux-gnu/c++/11/
+    - --include-directory=/home/henrique/Documents/root_6.30.02/root_install/include/
+    - --include-directory=/home/henrique/Dropbox/APC_Paris/Root/cold_box_analysis/class/
+    - --include-directory=/home/henrique/Documents/SoLAr/WVFAnaSoLAr/class/
