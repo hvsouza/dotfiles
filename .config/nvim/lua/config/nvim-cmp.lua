@@ -57,7 +57,10 @@ nvim_lsp.clangd.setup {
 	}
 }
 
-nvim_lsp.lua_ls.setup {
+-- nvim_lsp.lua_ls.setup {
+vim.lsp.config('lua_ls',
+  {
+  capabilities = capabilities,
   settings = {
     Lua = {
       runtime = {
@@ -79,6 +82,8 @@ nvim_lsp.lua_ls.setup {
     },
   },
 }
+)
+
 
 nvim_lsp.pyright.setup {}
 nvim_lsp.cmake.setup{}
