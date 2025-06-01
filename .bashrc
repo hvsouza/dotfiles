@@ -96,7 +96,7 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -alF'
+alias ll='ls -al'
 alias la='ls -A'
 alias l='ls -CF'
 
@@ -173,6 +173,10 @@ export protoVD="/home/henrique/Documents/ADC_data/ProtoDUNE_VD"
 export SOLAR="/home/henrique/Documents/SoLAr/"
 export solclass="/home/henrique/Documents/SoLAr/WVFAnaSoLAr/class/"
 export WAFFLES="/home/henrique/Documents/waffles/src/waffles/"
+export ATMOANA="/home/henrique/Documents/Atmos_Pandora/apc_atmo_repo/personal/Henrique/Analysis/"
+
+alias sourceatmo="source ${ATMOANA}/.venv/bin/activate"
+alias sourcewaffles="source ~/Documents/waffles/.venv/bin/activate"
 
 
 # for sarching forward with ctrl+t
@@ -241,3 +245,8 @@ sshlxplus(){
     xy=${2:-"-Y"}
     ssh ${xy} -L ${VNC_PORT}:localhost:${VNC_PORT} hvieirad@lxplus${whichlxplus}.cern.ch
 }
+source /home/henrique/Documents/alacritty/extra/completions/alacritty.bash
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
