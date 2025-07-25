@@ -6,5 +6,5 @@
   gStyle->SetPadGridX(1);
   gStyle->SetPadGridY(1);
   gStyle->SetOptFit(111);
-  gStyle->SetLineScalePS(1)
+  gStyle->SetLineScalePS(2)
 }

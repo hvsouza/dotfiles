@@ -9,6 +9,16 @@ case $- in
       *) return;;
 esac
 
+# vi keybindings
+set -o vi
+bind -m vi-command ".":insert-last-argument
+bind -m vi-insert "\C-l.":clear-screen
+bind -m vi-insert "\C-a.":beginning-of-line
+bind -m vi-insert "\C-e.":end-of-line
+bind -m vi-insert "\C-w.":backward-kill-word
+bind -m vi-insert "\C-k.":kill-line
+bind '"jk":vi-movement-mode'
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -127,7 +137,7 @@ fi
 # prevent Ctrl-s from freezing terminal
 stty -ixon
 
-export VISUAL="emacsclient -c -a emacs"         # $VISUAL opens in GUI mode
+# export VISUAL="emacsclient -c -a emacs"         # $VISUAL opens in GUI mode
 alias myemacs="emacsclient -n"
 # alias myemacs="emacsclient -n -a emacs"
 
@@ -246,6 +256,11 @@ sshlxplus(){
     ssh ${xy} -L ${VNC_PORT}:localhost:${VNC_PORT} hvieirad@lxplus${whichlxplus}.cern.ch
 }
 source /home/henrique/Documents/alacritty/extra/completions/alacritty.bash
+
+# from slack with Valeria
+alias daqhome='ssh -L 8080:np04-srv-017:31023 hvieirad@lxtunnel.cern.ch'
+
+alias restartaudio='systemctl --user restart pipewire.service'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

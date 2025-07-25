@@ -59,7 +59,8 @@ return {
                 },
             },
             indent = {
-                enable = false,
+                enable = true,
+                disable = { "cpp", "c" }
             },
         },
     },
