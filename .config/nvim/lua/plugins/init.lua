@@ -48,14 +48,30 @@ return {
 
 
 	-- install with yarn or npm
+	-- {
+	--   "iamcco/markdown-preview.nvim",
+	--   cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+	--   build = "cd app && yarn install",
+	--   init = function()
+	-- 	vim.g.mkdp_filetypes = { "markdown" }
+	--   end,
+	--   ft = { "markdown" },
+	-- },
 	{
-	  "iamcco/markdown-preview.nvim",
-	  cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-	  build = "cd app && yarn install",
-	  init = function()
-		vim.g.mkdp_filetypes = { "markdown" }
-	  end,
-	  ft = { "markdown" },
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		build = function()
+			-- prefer yarn if available, otherwise fallback to npm
+			if vim.fn.executable("yarn") == 1 then
+				vim.fn.system({"sh", "-c", "cd app && yarn install"})
+			else
+				vim.fn.system({"sh", "-c", "cd app && npm install"})
+			end
+		end,
+		init = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
 	},
 
 	{ 'nvim-lua/plenary.nvim' },

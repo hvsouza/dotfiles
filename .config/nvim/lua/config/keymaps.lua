@@ -64,6 +64,9 @@ vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Go to lower window", remap = tr
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to right window", remap = true })
 
+-- Make window diff
+vim.keymap.set("n", "<leader>wD", "<cmd>diffoff!<cr><cmd>windo diffthis<cr>", { desc = "Make windows diff" })
+
 
 -- Better indenting
 vim.keymap.set("v", "<", "<gv")
