@@ -11,6 +11,13 @@ vim.keymap.set({ 'i' }, '<C-n>', function ()
   require"lsp_signature".select_signature_key()
 end, { silent = true, noremap = true, desc = 'select signature' })
 
+vim.keymap.set({ 'n' }, '<C-k>', function()
+  require('lsp_signature').toggle_float_win()
+end, { silent = true, noremap = true, desc = 'toggle signature' })
+
+vim.keymap.set({ 'n' }, '<Leader>k', function()
+ vim.lsp.buf.signature_help()
+end, { silent = true, noremap = true, desc = 'toggle signature' })
 
 
 cmp.setup({
