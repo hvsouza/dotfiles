@@ -168,6 +168,7 @@ alias cppwd="pwd | tr -d '\n' | xclip -sel c"
 
 # for dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+export dotfiles='/home/henrique/dotfiles/'
 # make sure you use command
 # config config --local status.showUntrackedFiles no
 
