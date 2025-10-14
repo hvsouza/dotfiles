@@ -40,12 +40,11 @@ local function file_exists(name)
 end
 if file_exists('/home/henrique/venvs/.nvim-venv/bin/python') then
     vim.g.python3_host_prog = '/home/henrique/venvs/.nvim-venv/bin/python' -- set python3 interpreter
-elseif file_exists('/afs/cern.ch/user/h/hvieirad/.nvim-venv/bin/python') then
-    vim.g.python3_host_prog = '/afs/cern.ch/user/h/hvieirad/.nvim-venv/bin/python'
+elseif file_exists('/eos/home-h/hvieirad/waffles/fddaq-v4.4.7-a9/.venv/bin/python') then
+    vim.g.python3_host_prog = '/eos/home-h/hvieirad/waffles/fddaq-v4.4.7-a9/.venv/bin/python'
 elseif file_exists('/nashome/h/hsouza/.nvim-venv/bin/python') then
     vim.g.python3_host_prog = '/nashome/h/hsouza/.nvim-venv/bin/python'
 end
-
 
 -- vim.opt.formatoptions='qrn1j' -- don't continue comments when hit `o`
 vim.cmd("autocmd FileType * set formatoptions=qrn1j")
