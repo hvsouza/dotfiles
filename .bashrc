@@ -119,10 +119,6 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -184,15 +180,15 @@ export protoVD="/home/henrique/Documents/ADC_data/ProtoDUNE_VD"
 export SOLAR="/home/henrique/Documents/SoLAr/"
 export solclass="/home/henrique/Documents/SoLAr/WVFAnaSoLAr/class/"
 export WAFFLES="/home/henrique/Documents/waffles/src/waffles/"
-export ATMOANA="/home/henrique/Documents/Atmos_Pandora/apc_atmo_repo/personal/Henrique/Analysis/"
+export ATMOANA="/home/henrique/Documents/cernbox/Atmos_Pandora/apc_atmo_repo/personal/Henrique/Analysis/"
+export CERNBOX="/home/henrique/Documents/cernbox/"
 
 alias sourceatmo="source ${ATMOANA}/.venv/bin/activate"
-alias sourcewaffles="source ~/Documents/waffles/.venv/bin/activate"
+alias sourcewaffles="source ~/Documents/waenv/bin/activate"
 
 
 # for sarching forward with ctrl+t
 bind "\C-t":forward-search-history
-
 
 
 cpls () {
@@ -256,6 +252,7 @@ sshlxplus(){
     xy=${2:-"-Y"}
     ssh ${xy} -L ${VNC_PORT}:localhost:${VNC_PORT} hvieirad@lxplus${whichlxplus}.cern.ch
 }
+
 source /home/henrique/Documents/alacritty/extra/completions/alacritty.bash
 
 # from slack with Valeria
@@ -266,3 +263,7 @@ alias restartaudio='systemctl --user restart pipewire.service'
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+alias update_cinnamon_config="dconf dump /org/cinnamon/ > ~/cinnamon.cfg"
+alias read_cinnamon_config="dconf load /org/cinnamon/ < ~/cinnamon.cfg"

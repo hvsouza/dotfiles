@@ -34,6 +34,20 @@ vim.opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line
 
 vim.opt.matchpairs:append('<:>') -- add angle brackets to matchpairs
 
+local function file_exists(name)
+   local f=io.open(name,"r")
+   if f~=nil then io.close(f) return true else return false end
+end
+if file_exists('/home/henrique/venvs/.nvim-venv/bin/python') then
+    vim.g.python3_host_prog = '/home/henrique/venvs/.nvim-venv/bin/python' -- set python3 interpreter
+elseif file_exists('/afs/cern.ch/user/h/hvieirad/.nvim-venv/bin/python') then
+    vim.g.python3_host_prog = '/afs/cern.ch/user/h/hvieirad/.nvim-venv/bin/python'
+elseif file_exists('/nashome/h/hsouza/.nvim-venv/bin/python') then
+    vim.g.python3_host_prog = '/nashome/h/hsouza/.nvim-venv/bin/python'
+end
+
+vim.g.python3_host_prog = '/home/henrique/venvs/.nvim-venv/bin/python' -- set python3 interpreter
+
 
 -- vim.opt.formatoptions='qrn1j' -- don't continue comments when hit `o`
 vim.cmd("autocmd FileType * set formatoptions=qrn1j")
