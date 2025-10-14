@@ -46,8 +46,6 @@ elseif file_exists('/nashome/h/hsouza/.nvim-venv/bin/python') then
     vim.g.python3_host_prog = '/nashome/h/hsouza/.nvim-venv/bin/python'
 end
 
-vim.g.python3_host_prog = '/home/henrique/venvs/.nvim-venv/bin/python' -- set python3 interpreter
-
 
 -- vim.opt.formatoptions='qrn1j' -- don't continue comments when hit `o`
 vim.cmd("autocmd FileType * set formatoptions=qrn1j")
