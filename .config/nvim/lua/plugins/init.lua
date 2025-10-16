@@ -28,6 +28,9 @@ return {
 	-- Vim commentary
 	{ 'tpope/vim-commentary' },
 
+	-- FZF, installed for fhcl
+	{ 'junegunn/fzf', run = './install --bin' },
+	{ 'junegunn/fzf.vim' },
 	-- Well ..
 	{ 'CrossR/vim-fhicl' },
 
