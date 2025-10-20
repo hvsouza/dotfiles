@@ -233,24 +233,58 @@ compress_pdf(){
 }
 
 # for lxplus
-lxplusID=118461
-export VNC_DISPLAY=$((1 + $lxplusID%65535))
-export VNC_PORT=$(($VNC_DISPLAY+5900))
 
-sshlxplus(){
-    Help(){
-        echo "Usage: $funcname \"whichlxplus\" \"xy\""
+lxplusID=118461
+export VNC_DISPLAY=$((1 + lxplusID % 65535))
+export VNC_PORT=$((VNC_DISPLAY + 5900))
+
+sshlxplus() {
+    local whichlxplus=""
+    local xy="-Y"
+    local add=0
+
+    Help() {
+        echo "Usage: sshlxplus [options]"
+        echo
+        echo "Options:"
+        echo "  -h, --help           Show this help message"
+        echo "  -l, --lxplus NUM     Which lxplus machine (e.g. 8 → lxplus8.cern.ch)"
+        echo "  -x, --x11 OPT        X11 option (default: -Y)"
+        echo "  -a, --add NUM        Offset to add to VNC_PORT"
+        echo
+        echo "Example:"
+        echo "  sshlxplus -l 997 -x -XY -a 1"
     }
 
-	if [ ! -z "$1" ]; then
-        if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
-            Help
-            return 0
-        fi
-	fi
-    whichlxplus=${1:-""}
-    xy=${2:-"-Y"}
-    ssh ${xy} -L ${VNC_PORT}:localhost:${VNC_PORT} hvieirad@lxplus${whichlxplus}.cern.ch
+    while [[ $# -gt 0 ]]; do
+        case $1 in
+            -h|--help)
+                Help
+                return 0
+                ;;
+            -l|--lxplus)
+                whichlxplus="$2"
+                shift 2
+                ;;
+            -x|--x11)
+                xy="$2"
+                shift 2
+                ;;
+            -a|--add)
+                add="$2"
+                shift 2
+                ;;
+            *)
+                echo "Unknown option: $1"
+                Help
+                return 1
+                ;;
+        esac
+    done
+
+    local vnc_port=$((VNC_PORT + add))
+
+    ssh ${xy} -L ${vnc_port}:localhost:${vnc_port} hvieirad@lxplus${whichlxplus}.cern.ch
 }
 
 source /home/henrique/Documents/alacritty/extra/completions/alacritty.bash
