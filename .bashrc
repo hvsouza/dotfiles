@@ -275,9 +275,16 @@ sshlxplus() {
                 shift 2
                 ;;
             *)
-                echo "Unknown option: $1"
-                Help
-                return 1
+                # If the argument looks like a number and whichlxplus is empty,
+                # treat it as the lxplus number.
+                if [[ -z "$whichlxplus" && "$1" =~ ^[0-9]+$ ]]; then
+                    whichlxplus="$1"
+                    shift
+                else
+                    echo "Unknown option or extra argument: $1"
+                    Help
+                    return 1
+                fi
                 ;;
         esac
     done
