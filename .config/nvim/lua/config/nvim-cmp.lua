@@ -52,6 +52,21 @@ cmp.setup({
   }),
 
 })
+
+-- To get completion from all buffers.
+cmp.setup {
+  sources = {
+    {
+      name = 'buffer',
+      option = {
+        get_bufnrs = function()
+          return vim.api.nvim_list_bufs()
+        end
+      }
+    }
+  }
+}
+
  -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
