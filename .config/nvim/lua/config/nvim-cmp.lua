@@ -47,25 +47,17 @@ cmp.setup({
     { name = "copilot" },
 	{ name = 'nvim_lsp' },
     { name = "luasnip" }, -- snippets
-    { name = "buffer" }, -- text within current buffer
-    { name = "path" }, -- file system paths
-  }),
-
-})
-
--- To get completion from all buffers.
-cmp.setup {
-  sources = {
-    {
-      name = 'buffer',
+    { name = "buffer",
       option = {
         get_bufnrs = function()
           return vim.api.nvim_list_bufs()
         end
       }
-    }
-  }
-}
+    }, -- text within current buffer
+    { name = "path" }, -- file system paths
+  }),
+
+})
 
  -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
