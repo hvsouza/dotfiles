@@ -89,7 +89,7 @@ WinNT.*.Editor:          notepad
 #Viewer3D.DefaultDrawOption:   ogl
 
 # Default Fitter (current choices are Minuit and Fumili).
-Root.Fitter:             Minuit
+Root.Fitter:             Minuit2
 
 # Enable (default) or disable the RooFit banner printing.
 # RooFit.Banner:  yes
