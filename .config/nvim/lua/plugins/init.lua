@@ -34,11 +34,21 @@ return {
 	-- Well ..
 	{ 'CrossR/vim-fhicl' },
 
-    -- Syntax package
-    {'sheerun/vim-polyglot'},
+    -- -- Syntax package
+    -- {'sheerun/vim-polyglot'},
 
 	-- Well.. easy align
 	{ 'junegunn/vim-easy-align' },
+
+	-- A more modern align
+	{
+		'Vonr/align.nvim',
+		branch = "v2",
+		lazy = true,
+		init = function()
+			-- Create your mappings here
+		end
+	},
 
 	-- Vim undo tree
 	{ 'mbbill/undotree' },
@@ -60,22 +70,31 @@ return {
 	--   end,
 	--   ft = { "markdown" },
 	-- },
+	-- install without yarn or npm
 	{
 		"iamcco/markdown-preview.nvim",
-		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		ft = "markdown",
 		build = function()
-			-- prefer yarn if available, otherwise fallback to npm
-			if vim.fn.executable("yarn") == 1 then
-				vim.fn.system({"sh", "-c", "cd app && yarn install"})
-			else
-				vim.fn.system({"sh", "-c", "cd app && npm install"})
-			end
+			vim.fn["mkdp#util#install"]()
 		end,
-		init = function()
-			vim.g.mkdp_filetypes = { "markdown" }
-		end,
-		ft = { "markdown" },
 	},
+
+	-- {
+	-- 	"iamcco/markdown-preview.nvim",
+	-- 	cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+	-- 	build = function()
+	-- 		-- prefer yarn if available, otherwise fallback to npm
+	-- 		if vim.fn.executable("yarn") == 1 then
+	-- 			vim.fn.system({"sh", "-c", "cd app && yarn install"})
+	-- 		else
+	-- 			vim.fn.system({"sh", "-c", "cd app && npm install"})
+	-- 		end
+	-- 	end,
+	-- 	init = function()
+	-- 		vim.g.mkdp_filetypes = { "markdown" }
+	-- 	end,
+	-- 	ft = { "markdown" },
+	-- },
 
 	{ 'nvim-lua/plenary.nvim' },
 	{ 'nvim-telescope/telescope.nvim' , tag='0.1.8' },
@@ -207,6 +226,25 @@ return {
 
 			}
 		end
+	},
+	{
+		'cameron-wags/rainbow_csv.nvim',
+		config = true,
+		ft = {
+			'csv',
+			'tsv',
+			'csv_semicolon',
+			'csv_whitespace',
+			'csv_pipe',
+			'rfc_csv',
+			'rfc_semicolon'
+		},
+		cmd = {
+			'RainbowDelim',
+			'RainbowDelimSimple',
+			'RainbowDelimQuoted',
+			'RainbowMultiDelim'
+		}
 	},
 
 }
