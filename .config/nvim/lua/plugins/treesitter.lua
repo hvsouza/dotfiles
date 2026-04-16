@@ -60,7 +60,7 @@ return {
             },
             indent = {
                 enable = true,
-                disable = { "cpp", "c" }
+                disable = { "cpp", "c", "python" },
             },
         },
     },
